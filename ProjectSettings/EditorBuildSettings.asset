@@ -4,37 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/(0th) MainMenu.unity
-    guid: 022a9087dd8befa4a950254ca2c35873
-  - enabled: 0
-    path: Assets/Scenes/(1st) Cave.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/(2nd) Classroom.unity
-    guid: 7cd7fafaa0b745946be78e6ebf869c4a
-  - enabled: 0
-    path: Assets/Scenes/(3rd) Cave.unity
-<<<<<<< HEAD
-    guid: ba6b15ba45fe01f4ba2b7a594c6906a5
-=======
-    guid: 10b9cf6fa0659334d933cbba75903d04
->>>>>>> d6e86e6aba60b67248733ee6104ead9ce94a1b44
-  - enabled: 0
-    path: Assets/Scenes/(4th) Parents.unity
-    guid: 8beea1bad366fe0438c1b659a39ed3a7
-  - enabled: 0
-    path: Assets/Scenes/(5th) Cave.unity
-<<<<<<< HEAD
-    guid: b6195343d2c7c1a4687f447332416058
-=======
-    guid: 9f78242230667b346938b67b70545165
->>>>>>> d6e86e6aba60b67248733ee6104ead9ce94a1b44
-  - enabled: 0
-    path: Assets/Scenes/(6th) Job.unity
-    guid: 2fd0a8f69d0c3754fbb53dca261f252c
-  - enabled: 0
-    path: Assets/Scenes/Ending.unity
-    guid: ddd8da3819c4f0740856097f0fc9903e
+  m_Scenes: []
   m_configObjects: {}
