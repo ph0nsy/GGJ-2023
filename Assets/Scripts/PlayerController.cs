@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
  #if UNITY_EDITOR
  using UnityEditor;
  #endif
@@ -35,7 +37,8 @@ public class PlayerController : MonoBehaviour
     [Header("Sprite")]
     [SerializeField]
     public SpriteRenderer _spriteRenderer;
-//    private bool flipped;
+    [SerializeField]
+    public Animator _animator;
     #endregion
     
     // Start is called before the first frame update
@@ -65,12 +68,19 @@ public class PlayerController : MonoBehaviour
     {
         #region Movement
         Vector3 _movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized * Time.deltaTime * _speed;
+        _animator.SetFloat("Horizontal",Input.GetAxisRaw("Horizontal") != 0 ? Input.GetAxisRaw("Horizontal") : Input.GetAxisRaw("Vertical"));
         _rigidbody.velocity = new Vector3(_movement.x, _rigidbody.velocity.y, _movement.z);
         _rigidbody.MovePosition(transform.position + _movement);
 
+        if(IsGrounded()){
+            _animator.SetBool("Air",false);
+        }
+
         if (Input.GetKey(KeyCode.Space)){    
-            if (IsGrounded())
+            if (IsGrounded()){
                 _rigidbody.AddForce(Vector3.up*_jumpForce, ForceMode.Impulse);
+                _animator.SetBool("Air",true);
+            }
         }
         #endregion
     }
@@ -78,13 +88,11 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position+new Vector3(0,0.1f,0), Vector3.down, out _hit, 0.15f, LayerMask.GetMask("Ground"))){
+        if (Physics.Raycast(transform.position+new Vector3(0,0.1f,0), Vector3.down, out _hit, 0.25f, LayerMask.GetMask("Ground"))){
             Debug.DrawRay(transform.position+new Vector3(0,0.1f,0), transform.TransformDirection(Vector3.down) * _hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
             return true;
         } else {
-            Debug.DrawRay(transform.position+new Vector3(0,0.1f,0), transform.TransformDirection(Vector3.down) * 0.15f, Color.red);
-            Debug.Log("Did not Hit");
+            Debug.DrawRay(transform.position+new Vector3(0,0.1f,0), transform.TransformDirection(Vector3.down) * 0.25f, Color.red);
             return false;
         }
     }

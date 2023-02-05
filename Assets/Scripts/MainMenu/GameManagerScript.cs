@@ -8,9 +8,14 @@ public class GameManagerScript : MonoBehaviour
 {
     public int GameStartScene;
 
+    private void Start()
+    {
+        GameStartScene = SceneManager.GetActiveScene().buildIndex;
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene(GameStartScene);
+        SceneManager.LoadScene(GameStartScene+1);
     }
     public void QuitGame()
     {

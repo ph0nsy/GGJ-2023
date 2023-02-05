@@ -30,10 +30,10 @@ public class CanvasToggle3 : MonoBehaviour
         isShowing2 = true;
         CanvasRespuestas.SetActive(isShowing3);
 
-        if (Input.GetKeyDown("a") 
-        || Input.GetKeyDown("w")
-        || Input.GetKeyDown("s")
-        || Input.GetKeyDown("d")) {
+        if (Input.GetKeyDown("z") 
+        || Input.GetKeyDown("x")
+        || Input.GetKeyDown("c")
+        || Input.GetKeyDown("v")) {
             isShowing1 = false;
             Canvas1.SetActive(isShowing1);
             isShowing2 = true;
